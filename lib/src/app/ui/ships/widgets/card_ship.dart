@@ -16,7 +16,7 @@ class CardShip extends StatelessWidget {
     BorderRadius _borderRadius = BorderRadius.circular(20);
 
     return Padding(
-      padding: REdgeInsets.all(10),
+      padding: REdgeInsets.only(left: 10, right: 10, bottom: 15),
       child: InkWell(
         borderRadius: _borderRadius,
         onTap: onTap,

@@ -19,7 +19,7 @@ class SpaceXService extends MomentumService {
   }
 
   Future<ShipEntitie> getOneShip({required String shipId}) async {
-    final response = await Api().dio.get('ships/$shipId');
+    final response = await Api().dio.get('launches/$shipId');
 
     return ShipEntitie.fromJson(response.data);
   }
