@@ -43,7 +43,7 @@ class _MainShipsState extends MomentumState<MainShips> {
                           return CardShip(
                               shipEntitie: snapshot.data![index],
                               onTap: () {
-                                _shipsController?.model.update(ship_id: snapshot.data![index].shipId);
+                                _shipsController?.model.update(ship_id: snapshot.data![index].id);
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(

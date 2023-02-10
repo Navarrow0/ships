@@ -11,7 +11,7 @@ class SpaceXService extends MomentumService {
   SpaceXService._();
 
   Future<List<ShipEntitie>> getAllShips() async {
-    final response = await Api().dio.get('ships');
+    final response = await Api().dio.get('launches/');
 
     return (response.data as List)
         .map((p) => ShipEntitie.fromJson(p))

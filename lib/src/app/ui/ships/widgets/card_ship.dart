@@ -43,7 +43,7 @@ class CardShip extends StatelessWidget {
                   ClipRRect(
                     borderRadius: _borderRadius,
                     child: CachedNetworkImage(
-                      imageUrl: shipEntitie.image ?? '',
+                      imageUrl: shipEntitie.links.patch.small ?? '',
                       width: 90.w,
                       height: 90.h,
                       fit: BoxFit.cover,
@@ -59,22 +59,30 @@ class CardShip extends StatelessWidget {
                       SizedBox(
                         height: 10.h,
                       ),
-                      Text(shipEntitie.shipName, style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 12.sp
-                      ),),
-                      Text('Puesto base: ${shipEntitie.homePort}', style: TextStyle(
+                      SizedBox(
+                        width: 150.w,
+                        child: Text(shipEntitie.name, style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14.sp,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        maxLines: 1,),
+                      ),
+                      Text('Número de vuelo: ${shipEntitie.flightNumber}', style: TextStyle(
                           fontSize: 12.sp
                       ),),
                       SizedBox(
                         height: 8.h,
                       ),
-                      Text('Peso en KG: ${shipEntitie.weightKg ?? 'Dato no disponible'}', style: TextStyle(
-                          fontSize: 12.sp
-                      ),),
+                      Text(
+                        'Cohete: ${shipEntitie.rocket.substring(0, 9)}...',
+                        maxLines: 1,
+                        style: TextStyle(
+                          fontSize: 12.sp,),
+                      ),
                       Row(
                         children: [
-                          Text('Activo', style: TextStyle(
+                          Text('Éxito', style: TextStyle(
                               fontSize: 12.sp
                           ),),
                           SizedBox(
@@ -85,7 +93,7 @@ class CardShip extends StatelessWidget {
                             height: 10.h,
                             decoration: BoxDecoration(
                                 shape: BoxShape.circle,
-                                color: shipEntitie.active ? Colors.green : Colors.red
+                                color: shipEntitie.success != null ? shipEntitie.success! ? Colors.green : Colors.red : Colors.red
                             ),
                           ),
                         ],
